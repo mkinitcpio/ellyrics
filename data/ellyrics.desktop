@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Ellyrics
+GenericName=Ellyrics
+Comment=Song lyrics searcher
+Categories=Utility;Internet;
+Exec=com.github.mkinitcpio.ellyrics
+Icon=application-default-icon
+Terminal=false
+Type=Application
+X-GNOME-Gettext-Domain=ellyrics
+Keywords=Lyrics;Song;
