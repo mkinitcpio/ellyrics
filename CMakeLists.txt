@@ -12,11 +12,11 @@
     set (EXEC_NAME "com.github.mkinitcpio.ellyrics")
     set (RELEASE_NAME "Ellyrics")
     set (VERSION "0.1")
-    set (VERSION_INFO "whats up world")
+    set (VERSION_INFO "Alpha")
 
     find_package(PkgConfig)
 
-    pkg_check_modules(DEPS REQUIRED gtk+-3.0)
+    pkg_check_modules(DEPS REQUIRED gtk+-3.0 granite>=0.3.0)
 
     add_definitions(${DEPS_CFLAGS})
     link_libraries(${DEPS_LIBRARIES})
@@ -27,13 +27,22 @@
     ensure_vala_version("0.16" MINIMUM)
 
     include(ValaPrecompile)
+
+    set (program_DEPS
+        gtk+-3.0
+        granite
+    )
+
     vala_precompile(VALA_C ${EXEC_NAME}
         src/EllyricsApplication.vala
         src/EllyricsApplicationWindow.vala
         src/Widgets/HeaderBar.vala
 
     PACKAGES
-        gtk+-3.0
+        ${program_DEPS}
+
+    OPTIONS
+        --thread
     )
 
     add_executable(${EXEC_NAME} ${VALA_C})
