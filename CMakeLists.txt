@@ -37,6 +37,8 @@
         src/EllyricsApplication.vala
         src/EllyricsApplicationWindow.vala
         src/Widgets/HeaderBar.vala
+        src/Widgets/NetworkStatusNotification.vala
+        src/Services/NetworkConnectionService.vala
 
     PACKAGES
         ${program_DEPS}
