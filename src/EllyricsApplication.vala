@@ -1,5 +1,6 @@
-public class EllyricsApplication {
+public class EllyricsApplication: Object {
     public static int main (string[] args) {
-        return 0;
+        var app = new EllyricsApplicationWindow ();
+        return app.run(args);
     }
 }
