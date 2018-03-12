@@ -30,6 +30,7 @@
     vala_precompile(VALA_C ${EXEC_NAME}
         src/EllyricsApplication.vala
         src/EllyricsApplicationWindow.vala
+        src/Widgets/HeaderBar.vala
 
     PACKAGES
         gtk+-3.0
