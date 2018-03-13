@@ -6,7 +6,7 @@ namespace Ellyrics.Services {
 
         public signal void on_network_connection_changed (bool available);
 
-        private NetworkConnectionService() {
+        private NetworkConnectionService () {
             _monitor = NetworkMonitor.get_default ();
             _prev_network_connection_state = _monitor.get_network_available ();
     

@@ -34,9 +34,9 @@ class EllyricsApplicationWindow : Gtk.Application {
         window.title = WINDOW_TITLE;
 
         _network_status_notification = new NetworkStatusNotification ();
-        _headerbar = new HeaderBar();
+        _headerbar = new HeaderBar ();
 
-        window.set_titlebar(_headerbar);
+        window.set_titlebar (_headerbar);
         window.add (_network_status_notification);
 
         if(!_networkConnectionService.is_network_available) {

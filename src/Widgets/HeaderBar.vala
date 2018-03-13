@@ -6,20 +6,20 @@ namespace Ellyrics.Widgets {
         private Granite.Widgets.ModeButton _view_mode;
         private const int DEFAULT_ACTIVE_BUTTON_INDEX = 0;
 
-        public signal void on_search_text_changed(string search_text);
+        public signal void on_search_text_changed (string search_text);
         public signal void on_view_mode_changed ();
 
-        public HeaderBar() {
-            Object(
+        public HeaderBar () {
+            Object (
                 has_subtitle: true,
                 show_close_button: true
             );
         }
 
         construct {
-            _search_entry = new Gtk.SearchEntry();
+            _search_entry = new Gtk.SearchEntry ();
             _search_entry.placeholder_text = "Search Lyrics";
-            _search_entry.search_changed.connect(() => on_search_text_changed(_search_entry.text));
+            _search_entry.search_changed.connect (() => on_search_text_changed(_search_entry.text));
 
             _view_mode = new Granite.Widgets.ModeButton ();
             _view_mode.append_text ("Home");
@@ -28,8 +28,8 @@ namespace Ellyrics.Widgets {
             _view_mode.mode_changed.connect (() => on_view_mode_changed ());
 
             set_custom_title ( _view_mode);
-            pack_end(_search_entry);
-            show_all();
+            pack_end (_search_entry);
+            show_all ();
         }
     }
 }
