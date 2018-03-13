@@ -10,6 +10,7 @@ class EllyricsApplicationWindow : Gtk.Application {
     private const string WINDOW_TITLE = "Ellyrics";
 
     private HeaderBar _headerbar;
+    private ContentLayout _content_layout;
     private NetworkConnectionService _networkConnectionService;
     private NetworkStatusNotification _network_status_notification;
     public EllyricsApplicationWindow () {
@@ -37,11 +38,22 @@ class EllyricsApplicationWindow : Gtk.Application {
         _headerbar = new HeaderBar ();
 
         window.set_titlebar (_headerbar);
-        window.add (_network_status_notification);
+        
+        var layout = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+        var _content_layout = new ContentLayout ();
+
+        layout.add (_network_status_notification);
+        layout.add (_content_layout);
+
+        _headerbar.on_view_mode_changed.connect ((selected_view_mode) => {
+            _content_layout.set_active_page (selected_view_mode);
+        });
 
         if(!_networkConnectionService.is_network_available) {
             _network_status_notification.show ("No network connection.");
         }
+
+        window.add (layout);
         window.show_all ();
     }
 }
